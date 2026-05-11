@@ -1,0 +1,69 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:      #0D1B2A;
+  --navy-mid:  #1E3A5F;
+  --teal:      #2E86AB;
+  --teal-light:#EAF4FB;
+  --green:     #27AE60;
+  --green-light:#EAFAF1;
+  --orange:    #E8871E;
+  --orange-light:#FEF9E7;
+  --red:       #E74C3C;
+  --red-light: #FDEDEC;
+  --purple:    #8E44AD;
+  --purple-light:#F5EEF8;
+  --gray-50:   #F8FAFC;
+  --gray-100:  #F1F5F9;
+  --gray-200:  #E2E8F0;
+  --gray-300:  #CBD5E1;
+  --gray-500:  #64748B;
+  --gray-700:  #334155;
+  --gray-900:  #0F172A;
+  --white:     #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.10);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,.14);
+  --radius:    12px;
+  --radius-sm: 8px;
+  --radius-xs: 6px;
+  --font: 'Cairo', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+html { direction: rtl; font-size: 14px; }
+
+body {
+  font-family: var(--font);
+  background: var(--gray-50);
+  color: var(--gray-900);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 99px; }
+
+/* Animations */
+@keyframes fadeIn   { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes slideIn  { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
+@keyframes pulse    { 0%,100% { opacity:1; } 50% { opacity:.5; } }
+@keyframes shimmer  { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes scaleIn  { from { opacity:0; transform:scale(.95); } to { opacity:1; transform:scale(1); } }
+
+.fade-in  { animation: fadeIn  .35s ease both; }
+.slide-in { animation: slideIn .35s ease both; }
+.scale-in { animation: scaleIn .25s ease both; }
+
+/* Skeleton loader */
+.skeleton {
+  background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 50%, var(--gray-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--radius-xs);
+}
+
+/* Utility */
+.truncate { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
